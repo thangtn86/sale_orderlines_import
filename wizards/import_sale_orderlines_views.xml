@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Wizard form -->
+    <record id="import_sale_orderlines_view_form" model="ir.ui.view">
+        <field name="name">import.sale.orderlines.view</field>
+        <field name="model">import.sale.orderlines</field>
+        <field name="arch" type="xml">
+            <form string="Import Sale Orderlines">
+                <group>
+                    <group>
+                        <field name="name" invisible="1"/>
+                        <field name="file" filename="name"/>
+                    </group>
+                </group>
+                <footer>
+                    <button
+                        name="import_orderlines"
+                        string="Import"
+                        type="object"
+                        class="btn-primary"
+                    />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Wizard form action -->
+    <record id="import_sale_orderlines_action" model="ir.actions.act_window">
+        <field name="name">Import orderlines</field>
+        <field name="res_model">import.sale.orderlines</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="import_sale_orderlines_view_form"/>
+        <field name="target">new</field>
+    </record>
+</odoo>
